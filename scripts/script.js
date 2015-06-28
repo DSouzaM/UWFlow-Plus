@@ -1,4 +1,5 @@
 var courseObjs = []; //keeps track of courses to avoid repeated ajax calls
+var d = new Date();
 $(document).ready(function(){	
 	chrome.extension.sendMessage({'action':'createContextMenuItem'}); //adds right click option to course links
 	var $ajaxRequest; 
@@ -35,9 +36,9 @@ $(document).ready(function(){
 		} else {
 			loadContent(code);
 		}
+		
 	}, function() {
 		$('#frame').css('display','none');
-		$('#frame').load(chrome.extension.getURL("html/hoverwindow.html")); // reset frame 
 		if ($.active > 0)
 			$ajaxRequest.abort(); // terminates any ongoing request 
 	});		
