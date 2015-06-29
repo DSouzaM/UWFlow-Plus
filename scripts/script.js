@@ -2,10 +2,9 @@ var courseObjs = []; //keeps track of courses to avoid repeated ajax calls
 var d = new Date();
 $(document).ready(function(){	
 	chrome.extension.sendMessage({'action':'createContextMenuItem'}); //adds right click option to course links
-	var $ajaxRequest; 
 	$('body').after('<div id=\"frame\" class=\"loading\"></div>'); //appends a div after body
 	$('#frame').load(chrome.extension.getURL("html/hoverwindow.html")); //loads html of hover template into div
-
+	var $flowRequest;
 	$('a').hover(function(event) {
 		if(!this.href.includes('ugradcalendar.uwaterloo.ca/courses/'))
 			return;
@@ -18,29 +17,31 @@ $(document).ready(function(){
 		});
 		var code = getCourseCode($(this).attr('href'));
 
+
 		if ($.grep(courseObjs,function(e) {return e.code == code}).length == 0) { // performs ajax request if information not found
-			$ajaxRequest = $.ajax({jsonp: false, dataType: 'html', url: getUWFlowLink($(this).attr('href'))}); 
-			$ajaxRequest.done(function(siteHTML){
-				$('<div />').append(siteHTML).find('script').each(function() { // appends each script element to a div to make it DOM-accessible
+			var link = $(this).attr('href');
+			$flowRequest = $.ajax({jsonp: false, dataType: 'html', url: getUWFlowLink(link)})
+			$flowRequest.done(function(flowInfo) {
+				$('<div />').append(flowInfo).find('script').each(function() { // appends each script element to a div to make it DOM-accessible
 					var $text = $(this).text();
 					var begin = $text.indexOf('window.pageData.courseObj = {'); // finds beginning of JSON object declaration
 					if (begin > 0) {
-						var end = $text.indexOf(', \"professor_ids\"', begin); // finds end of JSON object declaration
-						var data = JSON.parse($text.substring(begin+28, end)+ '}'); // parses data between
-						var newCourseObj = {code:data.code, name:data.name, description:data.description, usefulness:data.ratings[0].rating, easiness:data.ratings[1].rating, interest:data.ratings[2].rating, overall:data.overall.rating};
+						var end = $text.indexOf('\};', begin); // finds end of JSON object declaration
+						var flowData = JSON.parse($text.substring(begin+28, end)+ '}'); // parses data between						
+						var newCourseObj = {code:flowData.code, name:flowData.name, description:flowData.description, usefulness:flowData.ratings[0].rating, easiness:flowData.ratings[1].rating, overall:flowData.overall.rating};
 						courseObjs.push(newCourseObj); 
 					}
 				});
 				loadContent(code);
 			});
-		} else {
-			loadContent(code);
-		}
-		
-	}, function() {
-		$('#frame').css('display','none');
-		if ($.active > 0)
-			$ajaxRequest.abort(); // terminates any ongoing request 
+} else {
+	loadContent(code);
+}
+
+}, function() {
+	$('#frame').css('display','none');
+	if ($.active > 0)
+			$flowRequest.abort(); // terminates any ongoing request 
 	});		
 });
 
@@ -56,6 +57,8 @@ function getCourseCode(link){
 function getUWFlowLink(link){
 	return 'https://uwflow.com/course/' + link.substring(link.indexOf('/courses/')+9).replace('/','').toLowerCase();
 }
+
+
 
 function loadContent(code){
 	var data = $.grep(courseObjs,function(e) {return e.code == code})[0];
