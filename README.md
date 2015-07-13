@@ -13,6 +13,7 @@ This extension works as a page script on pages on the [ugradcalendar domain](htt
 * Download the [.crx file](https://github.com/MattDs17/UWFlow-Plus/raw/master/UWFlow-Plus.crx)
 * Navigate to the  extensions page (chrome://extensions/)
 * Drag the .crx file into the tab to install
+* Find your program on [ugradcalendar](ugradcalendar.uwaterloo.ca/) and hover over the courses to see it in action! (try a [sample page](http://ugradcalendar.uwaterloo.ca/page/ENG-Software-Engineering))
 
 ## <a name="credits"></a>Credits
 This extension is not directly affiliated with UWFlow. Some resources have been borrowed from UWFlow with respect to their [open source policy](http://blog.uwflow.com/post/78088794292/flow-is-now-open-sourced). Thanks go out to the creators of UWFlow for developing such a valuable platform and making it available to all.
