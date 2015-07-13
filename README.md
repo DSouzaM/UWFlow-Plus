@@ -1,6 +1,7 @@
 # UWFlow-Plus
 >A Chrome extension which adds UWFlow information to ugradcalendar.uwaterloo.ca pages.<hr>
 
+![Screenshot of hover and right click functionality](/res/uwflowusage.png)
 ##Table of Contents
 * [Functions](#functions)
 * [Installation](#installation)
