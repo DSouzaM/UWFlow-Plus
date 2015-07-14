@@ -9,6 +9,15 @@
 	border-width:2px;
 	border-color:#1695B5;
 }
+#frame * {
+	-webkit-margin-before: 2px;
+	-webkit-margin-after: 2px;
+	border-spacing:0px;
+}	
+
+#frame h3 {
+	color:#444444;
+}
 
 .loading {
 	background: url('chrome-extension://__MSG_@@extension_id__/res/loading.gif') center center no-repeat;	

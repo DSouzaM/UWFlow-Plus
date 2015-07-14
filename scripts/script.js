@@ -34,13 +34,13 @@ $(document).ready(function(){
 				});
 				loadContent(code);
 			});
-} else {
-	loadContent(code);
-}
+		} else {
+			loadContent(code);
+		}
 
-}, function() {
-	$('#frame').css('display','none');
-	if ($.active > 0)
+	}, function() {
+		$('#frame').css('display','none');
+		if ($.active > 0)
 			$flowRequest.abort(); // terminates any ongoing request 
 	});		
 });
@@ -65,6 +65,7 @@ function loadContent(code){
 	$('#frame').removeClass('loading');
 	$('#frame').addClass('info');
 	$('#code').html(data.code);
+	$('#course-name').html(data.name);
 	$('#description').html(data.description);
 	$('#useful-bar').css('width',(data.usefulness*100)+'%');
 	$('#useful').html(Math.round(data.usefulness*100)+'%');
