@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "UWFlow+",
-  "description": "Makes UWFlow easily accessible through ugradcalendar. Hover over courses for information, and right click to open the Flow page. This extension is not directly affiliated with UWFlow or its creators.",
+  "description": "Makes UWFlow easily accessible through ugradcalendar. Hover over courses for information, and right click to open the Flow page.",
   "version": "1.1",
 
   "page_action": {
