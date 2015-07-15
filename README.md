@@ -1,7 +1,7 @@
 # UWFlow-Plus
 >A Chrome extension which adds UWFlow information to ugradcalendar.uwaterloo.ca pages.<hr>
 
-![Screenshot of hover and right click functionality](/res/uwflowusage.png)
+![Screenshot of hover and right click functionality](/res/screenshot.png)
 ##Table of Contents
 * [Functions](#functions)
 * [Installation](#installation)
@@ -11,9 +11,14 @@
 ## <a name="functions"></a>Functions
 This extension works as a page script on pages on the [ugradcalendar domain](http://ugradcalendar.uwaterloo.ca). When the user hovers over a course, the extension creates a hovering frame which fetches information from [UWFlow](https://uwflow.com) about the given course. There is also a right-click option added to these links for convenience which opens the corresponding UWFlow page in a new tab.
 ## <a name="installation"></a>Installation
-* Download the [.crx file](https://github.com/DSouzaM/UWFlow-Plus/raw/master/UWFlow-Plus.crx)
-* Navigate to the  extensions page (chrome://extensions/)
-* Drag the .crx file into the tab to install
+* The extension is available for download in the [Chrome Web Store](https://chrome.google.com/webstore/detail/uwflow%2B/llnblgljihfinogpenmcjjleabnjkgfn/). 
+
+The extension can also be installed via the source files. 
+* Clone the repository
+* Navigate to the extensions page (chrome://extensions/)
+* Check off "Developer mode" in the top right
+* Click "Load unpacked extension..."
+* Select the folder (includes html, res, scripts, and styles folders as well as manifest.json)
 * Find your program on [ugradcalendar](ugradcalendar.uwaterloo.ca/) and hover over the courses to see it in action! (try a [sample page](http://ugradcalendar.uwaterloo.ca/page/ENG-Software-Engineering))
 
 ## <a name="credits"></a>Credits
