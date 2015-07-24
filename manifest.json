@@ -11,7 +11,10 @@
   "web_accessible_resources": ["res/loading.gif", "html/hoverwindow.html"],
   "content_scripts": [
   {
-    "matches": ["http://ugradcalendar.uwaterloo.ca/*","https://ugradcalendar.uwaterloo.ca/*"],
+    "matches": ["http://ugradcalendar.uwaterloo.ca/*",
+      "https://ugradcalendar.uwaterloo.ca/*", 
+      "http://www.ucalendar.uwaterloo.ca/*",
+      "https://www.ucalendar.uwaterloo.ca/*"],
     "css": ["styles/extension-styling.css"],
     "js": ["scripts/jquery-1.11.3.js","scripts/script.js","scripts/background.js"],
     "all_frames": true
@@ -32,6 +35,9 @@
     "http://uwflow.com/",
     "https://uwflow.com/",
     "http://ugradcalendar.uwaterloo.ca/",
-    "https://ugradcalendar.uwaterloo.ca/"
+    "https://ugradcalendar.uwaterloo.ca/",
+    "http://www.ucalendar.uwaterloo.ca/",
+    "https://www.ucalendar.uwaterloo.ca/"
+
   ]  
 }

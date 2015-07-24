@@ -69,6 +69,10 @@
   	background-image: linear-gradient(to bottom, #62c462,#57a957);
 }
 
+.flow-link {
+	color: #C40000;
+}
+
 #overall{
 	width:100%;
 	text-align:center;
